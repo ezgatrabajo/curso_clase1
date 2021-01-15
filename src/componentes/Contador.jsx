@@ -12,7 +12,12 @@ const Contador = () => {
     <Fragment>
       <hr />
       <h2>Contador</h2>
+
       <h3>{contador}</h3>
+      
+      <h4>
+      { contador > 2 ? 'mayor a 2': 'es menor o igual a 2'}
+      </h4>
       <button onClick={() => eventoClick()}>Aumentar</button>
     </Fragment>
   );
