@@ -11,6 +11,7 @@ export default function App() {
       <MarcasForm />
       <Variables />
       <Eventos />
+      <Contador />
     </div>
   );
 }
