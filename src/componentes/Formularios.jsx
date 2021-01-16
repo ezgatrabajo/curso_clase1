@@ -1,19 +1,49 @@
 import React, { Fragment, useState } from "react";
 
 const Formularios = () => {
-  const [texto, setTexto] = useState("hola mundo ");
+  const [nombre, setNombre] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+
+  const guardarDatos = e => {
+    e.preventDefault();
+    console.log("procesando datos...");
+  };
 
   const eventoClick = () => {
     console.log("hiciste click");
-    setTexto("nuevo valor");
+    setNombre("nuevo valor");
+    console.log("valor de nombre:" + nombre);
+    console.log(nombre);
+    if (!nombre.trim()) {
+      console.log("esta vacio nombre");
+    }
+    if (!descripcion.trim()) {
+      console.log("esta vacio descripcion");
+    }
   };
 
   return (
     <Fragment>
       <hr />
-      <input type="text" >
-      <h2>{texto}</h2>
-      <button onClick={() => eventoClick()}>boton</button>
+
+      <h2>Formularios</h2>
+      <form onSubmit={guardarDatos}>
+        <input
+          type="text"
+          placeholder="ingrese nombre"
+          onChange={e => setNombre(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="ingrese Descripcion"
+          onChange={e => setDescripcion(e.target.value)}
+        />
+
+        <button type="submit" onClick={() => eventoClick()}>
+          Guardar
+        </button>
+      </form>
     </Fragment>
   );
 };
