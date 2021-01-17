@@ -8,8 +8,7 @@ import Formularios from "./componentes/Formularios";
 export default function App() {
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Bienvenido</p>
+      <h1>Bienvenido</h1>
       <Formularios />
     </div>
   );
