@@ -6,6 +6,8 @@ import Variables from "./componentes/Variables";
 import Eventos from "./componentes/Eventos";
 import Contador from "./componentes/Contador";
 import Formularios from "./componentes/Formularios";
+//const shortid = require("shortid");
+import shortid from "shortid";
 
 export default function App() {
   const [tarea, setTarea] = React.useState("");
@@ -19,6 +21,36 @@ export default function App() {
     }
     setTareas([...tareas, { tarea, id: shortid.generate() }]);
     setTarea("");
+  };
+
+  const eliminarTarea = id => {
+    const arrayFiltrado = tareas.filter(item => item.id !== id);
+    setTareas(arrayFiltrado);
+  };
+  const [modoEdicion, setModoEdicion] = React.useState(false);
+  const [id, setId] = React.useState("");
+
+  // onClick={() => editar(item)}
+  const editar = item => {
+    setModoEdicion(true);
+    setTarea(item.tarea);
+    setId(item.id);
+  };
+
+  const editarTarea = e => {
+    e.preventDefault();
+    if (!tarea.trim()) {
+      console.log("Campo vacio");
+      return;
+    }
+
+    const arrayEditado = tareas.map(item =>
+      item.id === id ? { id, tarea } : item
+    );
+    setTareas(arrayEditado);
+    setModoEdicion(false);
+    setTarea("");
+    setId("");
   };
 
   return (
@@ -50,16 +82,26 @@ export default function App() {
         </div>
 
         <div className="col-4">
-          <h4 className="text-center">Agregar Tarea</h4>
-          <form>
+          <h4 className="text-center">
+            {modoEdicion ? "Editar Tarea" : "Agregar Tarea"}
+          </h4>
+          <form onSubmit={modoEdicion ? editarTarea : agregarTarea}>
             <input
               type="text"
               className="form-control mb-2"
               placeholder="Ingrese Tarea"
+              onChange={e => setTarea(e.target.value)}
+              value={tarea}
             />
-            <button className="btn btn-dark btn-block" type="submit">
-              Agregar
-            </button>
+            {modoEdicion ? (
+              <button className="btn btn-warning btn-block" type="submit">
+                Editar
+              </button>
+            ) : (
+              <button className="btn btn-dark btn-block" type="submit">
+                Agregar
+              </button>
+            )}
           </form>
         </div>
       </div>
