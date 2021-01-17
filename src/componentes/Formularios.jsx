@@ -7,19 +7,18 @@ const Formularios = () => {
   const guardarDatos = e => {
     e.preventDefault();
     console.log("procesando datos...");
-  };
-
-  const eventoClick = () => {
-    console.log("hiciste click");
-    setNombre("nuevo valor");
-    console.log("valor de nombre:" + nombre);
-    console.log(nombre);
     if (!nombre.trim()) {
       console.log("esta vacio nombre");
+      return;
     }
     if (!descripcion.trim()) {
       console.log("esta vacio descripcion");
+      return;
     }
+    console.log("procesando datos...");
+    e.target.reset();
+    setNombre("");
+    setDescripcion("");
   };
 
   return (
@@ -40,9 +39,7 @@ const Formularios = () => {
           onChange={e => setDescripcion(e.target.value)}
         />
 
-        <button type="submit" onClick={() => eventoClick()}>
-          Guardar
-        </button>
+        <button type="submit">Guardar</button>
       </form>
     </Fragment>
   );
