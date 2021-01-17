@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 
+import { Button, Form } from "react-bootstrap";
 const Formularios = () => {
   const [nombre, setNombre] = useState("");
   const [descripcion, setDescripcion] = useState("");
