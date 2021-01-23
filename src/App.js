@@ -14,7 +14,7 @@ export default function App() {
       <h1 className="text-center">PROPS APP</h1>
       <hr />
       <Saludo persona="ezequiel" />
-      <Saludo persona="juanito" />
+      <Saludo persona="juanito" edad={30} />
       <Saludo />
     </div>
   );

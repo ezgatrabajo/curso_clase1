@@ -12,7 +12,8 @@ const Saludo = props => {
     <Fragment>
       <h2>Saludo</h2>
       <hr />
-      <h5>{props.persona}</h5>
+      <h5>Nombre: {props.persona}</h5>
+      <h5>Edada: {props.edad}</h5>
     </Fragment>
   );
 };
