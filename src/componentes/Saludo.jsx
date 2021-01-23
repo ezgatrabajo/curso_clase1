@@ -13,7 +13,7 @@ const Saludo = props => {
       <h2>Saludo</h2>
       <hr />
       <h5>Nombre: {props.persona}</h5>
-      <h5>Edada: {props.edad}</h5>
+      <h5>Edad: {props.edad}</h5>
     </Fragment>
   );
 };
