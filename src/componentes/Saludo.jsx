@@ -10,10 +10,10 @@ const Saludo = () => {
 
   return (
     <Fragment>
-      <hr />
       <h2>Saludo</h2>
+      <hr />
     </Fragment>
   );
 };
 
-export default Contador;
+export default Saludo;

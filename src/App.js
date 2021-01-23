@@ -13,6 +13,7 @@ export default function App() {
     <div className="container mt-5">
       <h1 className="text-center">PROPS APP</h1>
       <hr />
+      <Saludo />
     </div>
   );
 }
